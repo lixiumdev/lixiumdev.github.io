@@ -25,7 +25,7 @@ fi
 
 cd $WORKLOAD_FOLDER
 
-IMAGE="$REGISTRY_ADDRESS/$REGISTRY_NAME/$SERVICE_NAME:$GITHUB_REF_NAME"
+IMAGE="$REGISTRY_ADDRESS/$REGISTRY_NAME/$SERVICE_NAME:$GITHUB_SHA"
 image=$IMAGE yq -i '.spec.template.spec.containers[0].image=env(image)' patch-deployment.yml
 
 git add patch-deployment.yml
